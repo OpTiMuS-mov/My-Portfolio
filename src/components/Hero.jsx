@@ -148,7 +148,7 @@ export default function Hero() {
           </Link>
         </Box>
 
-        <Box className="hero-social" sx={{ opacity: 0, display: 'flex', gap: 1.5, justifyContent: 'center' }}>
+        <Box className="hero-social" sx={{ opacity: 0, display: 'flex', gap: 1.5, justifyContent: 'center', mb: 6 }}>
           <Box
             component="a" href="https://linkedin.com/in/avinash-kotarya-0a37b1331" target="_blank"
             sx={{
