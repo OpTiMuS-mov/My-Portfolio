@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Box, Typography, Container, Card, Chip } from '@mui/material';
-import SecurityIcon from '@mui/icons-material/Security';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import BugReportIcon from '@mui/icons-material/BugReport';
+import SecurityIcon from '@mui/icons-material/Security';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +39,7 @@ const experiences = [
     location: 'Indore, MP',
     period: '2024 – Present',
     type: 'Specialization',
-    typeColor: '#EF4444',
+    typeColor: '#DC2626',
     icon: <BugReportIcon />,
     description: 'Performing Vulnerability Assessment and Penetration Testing on web applications and networks. Identifying security loopholes and suggesting mitigation strategies.',
     skills: ['VAPT', 'Burp Suite', 'Nmap', 'Metasploit', 'OWASP Top 10'],
@@ -50,7 +50,7 @@ const experiences = [
     location: 'Indore, MP',
     period: 'Jan 2025 – Apr 2025',
     type: 'Internship',
-    typeColor: '#8B5CF6',
+    typeColor: '#FBBF24',
     icon: <SecurityIcon />,
     description: 'Conducted vulnerability assessments and penetration testing for client applications. Identified critical security flaws and provided remediation recommendations.',
     skills: ['VAPT', 'Burp Suite', 'Nmap', 'Report Writing'],
@@ -106,17 +106,17 @@ export default function Experience() {
   }, []);
 
   const handleCardHover = (el, enter) => {
-    gsap.to(el, { y: enter ? -6 : 0, boxShadow: enter ? '0 10px 30px rgba(59,130,246,0.1)' : 'none', duration: 0.3, ease: 'power2.out' });
+    gsap.to(el, { y: enter ? -6 : 0, boxShadow: enter ? '0 10px 30px rgba(251,191,36,0.1)' : 'none', duration: 0.3, ease: 'power2.out' });
   };
 
   return (
-    <Box ref={sectionRef} id="experience" sx={{ py: 8, px: 2, background: '#0F172A', overflow: 'hidden' }}>
+    <Box ref={sectionRef} id="experience" sx={{ py: 8, px: 2, background: '#0A0A0A', overflow: 'hidden' }}>
       <Container maxWidth="lg">
         <Box ref={headerRef} sx={{ textAlign: 'center', mb: 6, opacity: 0 }}>
-          <Typography variant="caption" sx={{ color: '#3B82F6', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Experience</Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '1.8rem', md: '2.8rem' } }}>
+          <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Experience</Typography>
+          <Typography variant="h2" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '2rem', md: '3.2rem' }, letterSpacing: 3 }}>
             Professional{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #3B82F6, #60A5FA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>journey</Box>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>journey</Box>
           </Typography>
         </Box>
 
@@ -129,12 +129,13 @@ export default function Experience() {
               top: 0,
               bottom: 0,
               width: 3,
-              background: 'linear-gradient(180deg, #3B82F6, #8B5CF6, #F59E0B, #16a34a)',
+              background: 'linear-gradient(180deg, #FBBF24, #DC2626, #F59E0B, #16a34a)',
               transform: 'translateX(-50%)',
               transformOrigin: 'top',
               borderRadius: 2,
               zIndex: 1,
               display: { xs: 'none', md: 'block' },
+              boxShadow: '0 0 10px rgba(251,191,36,0.2)',
             }}
           />
 
@@ -153,9 +154,10 @@ export default function Experience() {
                       height: 16,
                       borderRadius: '50%',
                       background: exp.typeColor,
-                      border: '3px solid #0F172A',
+                      border: '3px solid #0A0A0A',
                       zIndex: 2,
                       display: { xs: 'none', md: 'block' },
+                      boxShadow: `0 0 12px ${exp.typeColor}60`,
                     }}
                   />
 
@@ -191,14 +193,14 @@ export default function Experience() {
                         borderTop: `4px solid ${exp.typeColor}`,
                         opacity: 0,
                         cursor: 'default',
-                        background: '#1E293B',
+                        background: '#141414',
                         '&:hover': { borderColor: exp.typeColor },
                       }}
                       onMouseEnter={(e) => handleCardHover(e.currentTarget, true)}
                       onMouseLeave={(e) => handleCardHover(e.currentTarget, false)}
                     >
                       <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start', mb: 2 }}>
-                        <Box sx={{ width: 48, height: 48, borderRadius: 2, background: `${exp.typeColor}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: exp.typeColor, flexShrink: 0 }}>
+                        <Box sx={{ width: 48, height: 48, borderRadius: 1, background: `${exp.typeColor}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: exp.typeColor, flexShrink: 0 }}>
                           {exp.icon}
                         </Box>
                         <Box sx={{ flex: 1 }}>
@@ -216,7 +218,7 @@ export default function Experience() {
                       <Typography variant="body2" sx={{ lineHeight: 1.7, mb: 2, color: '#CBD5E1' }}>{exp.description}</Typography>
                       <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                         {exp.skills.map((skill) => (
-                          <Chip key={skill} label={skill} size="small" sx={{ background: '#0F172A', color: '#94A3B8', fontSize: '0.75rem', border: '1px solid #334155' }} />
+                          <Chip key={skill} label={skill} size="small" sx={{ background: '#0A0A0A', color: '#94A3B8', fontSize: '0.75rem', border: '1px solid #2A2A2A' }} />
                         ))}
                       </Box>
                     </Card>

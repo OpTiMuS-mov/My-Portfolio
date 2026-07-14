@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './Navbar';
 import ScrollToTop from './ScrollToTop';
+import BatAnimations from './BatAnimations';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +20,7 @@ export default function Layout() {
   return (
     <>
       <ScrollToTop />
+      <BatAnimations />
       <Navbar />
       <Outlet />
     </>

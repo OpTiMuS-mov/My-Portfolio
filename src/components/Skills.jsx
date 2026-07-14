@@ -14,8 +14,8 @@ const categories = [
     icon: <SecurityIcon />,
     skills: [
       { name: 'Cyber Security', color: '#F59E0B', level: 85 },
-      { name: 'Penetration Testing', color: '#EF4444', level: 80 },
-      { name: 'Network Security', color: '#3B82F6', level: 75 },
+      { name: 'Penetration Testing', color: '#DC2626', level: 80 },
+      { name: 'Network Security', color: '#FBBF24', level: 75 },
       { name: 'OSINT', color: '#8B5CF6', level: 70 },
     ],
   },
@@ -52,10 +52,11 @@ function SkillBar({ color, level }) {
         value={level}
         sx={{
           height: 6, borderRadius: 3,
-          backgroundColor: '#1E293B',
+          backgroundColor: '#1E1E1E',
           '& .MuiLinearProgress-bar': {
             borderRadius: 3,
             background: `linear-gradient(90deg, ${color}, ${color}dd)`,
+            boxShadow: `0 0 8px ${color}40`,
           },
         }}
       />
@@ -89,7 +90,7 @@ export default function Skills() {
         { opacity: 0, y: 30, clipPath: 'inset(100% 0 0 0)' },
         { opacity: 1, y: 0, clipPath: 'inset(0% 0 0 0)', duration: 0.5, stagger: 0.06, ease: 'power3.out',
           scrollTrigger: { trigger: sectionRef.current, start: 'top 60%', toggleActions: 'play none none none' } }
-      );
+        );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -97,7 +98,8 @@ export default function Skills() {
   const handleTileHover = (el, enter) => {
     gsap.to(el, {
       y: enter ? -6 : 0,
-      boxShadow: enter ? `0 10px 30px ${el.dataset.color || '#3B82F6'}15` : 'none',
+      boxShadow: enter ? `0 10px 30px ${el.dataset.color || '#FBBF24'}15` : 'none',
+      borderColor: enter ? '#FBBF24' : '#2A2A2A',
       duration: 0.3, ease: 'power2.out',
     });
   };
@@ -109,20 +111,20 @@ export default function Skills() {
   };
 
   return (
-    <Box ref={sectionRef} id="skills" sx={{ py: 8, px: 2, background: '#0F172A' }}>
+    <Box ref={sectionRef} id="skills" sx={{ py: 8, px: 2, background: '#0A0A0A' }}>
       <Container maxWidth="lg">
         <Box ref={headerRef} sx={{ textAlign: 'center', mb: 5, opacity: 0 }}>
-          <Typography variant="caption" sx={{ color: '#3B82F6', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Skills</Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '1.8rem', md: '2.8rem' } }}>
+          <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Skills</Typography>
+          <Typography variant="h2" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '2rem', md: '3.2rem' }, letterSpacing: 3 }}>
             Technologies I{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #3B82F6, #60A5FA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>work with</Box>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>work with</Box>
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
           {categories.map((cat, ci) => (
-            <Card key={cat.title} ref={(el) => (categoryCardsRef.current[ci] = el)} sx={{ p: 3, opacity: 0 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2.5, color: '#3B82F6' }}>
+            <Card key={cat.title} ref={(el) => (categoryCardsRef.current[ci] = el)} sx={{ p: 3, opacity: 0, borderTop: '2px solid #FBBF24' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2.5, color: '#FBBF24' }}>
                 {cat.icon}
                 <Typography variant="h6" sx={{ fontFamily: "'JetBrains Mono', monospace" }}>{cat.title}</Typography>
               </Box>
@@ -132,7 +134,7 @@ export default function Skills() {
                     <Card
                       ref={(el) => { skillTilesRef.current[ci * 10 + si] = el; }}
                       variant="outlined"
-                      sx={{ p: 2.5, textAlign: 'center', borderColor: '#334155', cursor: 'default', opacity: 0, '&:hover': { borderColor: skill.color + '40' } }}
+                      sx={{ p: 2.5, textAlign: 'center', borderColor: '#2A2A2A', cursor: 'default', opacity: 0 }}
                       data-color={skill.color}
                       onMouseEnter={(e) => handleTileHover(e.currentTarget, true)}
                       onMouseLeave={(e) => handleTileHover(e.currentTarget, false)}

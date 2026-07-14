@@ -19,7 +19,7 @@
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 4px;
   padding: 2rem;
   position: relative;
   overflow: hidden;
@@ -27,13 +27,13 @@
 }
 
 .project-card:hover {
-  border-color: rgba(108, 99, 255, 0.3);
+  border-color: rgba(251, 191, 36, 0.3);
 }
 
 .project-featured {
   grid-column: span 2;
-  border: 1px solid rgba(108, 99, 255, 0.2);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(108, 99, 255, 0.03) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(251, 191, 36, 0.03) 100%);
 }
 
 .project-glow {
@@ -65,8 +65,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(108, 99, 255, 0.08);
-  border-radius: 14px;
+  background: rgba(251, 191, 36, 0.08);
+  border-radius: 4px;
 }
 
 .project-links {
@@ -81,7 +81,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 4px;
   background: none;
   color: var(--text-muted);
   cursor: pointer;
@@ -89,8 +89,8 @@
 }
 
 .project-link-btn:hover {
-  border-color: var(--accent);
-  background: rgba(108, 99, 255, 0.08);
+  border-color: #FBBF24;
+  background: rgba(251, 191, 36, 0.08);
 }
 
 .project-title {
@@ -116,10 +116,10 @@
 .tech-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
-  background: rgba(108, 99, 255, 0.08);
-  border: 1px solid rgba(108, 99, 255, 0.15);
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.15);
   padding: 0.3rem 0.8rem;
-  border-radius: 6px;
+  border-radius: 4px;
   font-weight: 500;
 }
 
@@ -130,7 +130,7 @@
   gap: 0.8rem;
   padding: 1.5rem;
   border: 1px dashed var(--border);
-  border-radius: 12px;
+  border-radius: 4px;
   color: var(--text-muted);
   font-size: 0.95rem;
 }

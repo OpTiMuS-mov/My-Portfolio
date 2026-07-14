@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Bebas+Neue&display=swap');
+
 *,
 *::before,
 *::after {
@@ -7,14 +9,17 @@
 }
 
 :root {
-  --bg-primary: #0F172A;
-  --bg-secondary: #0F172A;
-  --bg-card: #1E293B;
-  --border: #334155;
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #0A0A0A;
+  --bg-card: #141414;
+  --border: #2A2A2A;
   --text-primary: #F8FAFC;
   --text-secondary: #94A3B8;
   --text-muted: #64748B;
-  --accent: #3B82F6;
+  --accent: #FBBF24;
+  --accent-dim: #D97706;
+  --glow: rgba(251, 191, 36, 0.15);
+  --red: #DC2626;
 }
 
 html {
@@ -24,13 +29,13 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
-  background: #0F172A;
+  background: #0A0A0A;
   color: #F8FAFC;
 }
 
 ::selection {
-  background: #22C55E;
-  color: #0F172A;
+  background: #FBBF24;
+  color: #0A0A0A;
 }
 
 a {
@@ -69,21 +74,87 @@ a {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #3B82F6, #60A5FA);
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1E293B;
+  background: #0A0A0A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22C55E;
+  background: #FBBF24;
   border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+@keyframes batFly {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0; }
+  10% { opacity: 0.7; }
+  50% { transform: translate(40vw, -30vh) rotate(15deg) scale(0.8); opacity: 0.5; }
+  90% { opacity: 0.3; }
+  100% { transform: translate(80vw, -60vh) rotate(-10deg) scale(0.5); opacity: 0; }
+}
+
+@keyframes batFlyReverse {
+  0% { transform: translate(0, 0) rotate(0deg) scale(0.8); opacity: 0; }
+  10% { opacity: 0.5; }
+  50% { transform: translate(-30vw, -40vh) rotate(-20deg) scale(0.6); opacity: 0.4; }
+  90% { opacity: 0.2; }
+  100% { transform: translate(-70vw, -50vh) rotate(15deg) scale(0.3); opacity: 0; }
+}
+
+@keyframes batWing {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.7); }
+}
+
+@keyframes batSignalSweep {
+  0% { transform: translateX(-50%) rotate(-20deg); opacity: 0.3; }
+  50% { transform: translateX(-50%) rotate(20deg); opacity: 0.6; }
+  100% { transform: translateX(-50%) rotate(-20deg); opacity: 0.3; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.1), 0 0 40px rgba(251, 191, 36, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.2), 0 0 60px rgba(251, 191, 36, 0.1); }
+}
+
+@keyframes smokeRise {
+  0% { transform: translateY(0) scale(1); opacity: 0.15; }
+  50% { opacity: 0.08; }
+  100% { transform: translateY(-100px) scale(2); opacity: 0; }
+}
+
+@keyframes trailFade {
+  0% { opacity: 0.6; transform: scaleX(1); }
+  100% { opacity: 0; transform: scaleX(0.3); }
+}
+
+.bat-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 20px;
+  height: 20px;
+}
+
+.bat-trail::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #FBBF24;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #FBBF24, 0 0 16px rgba(251, 191, 36, 0.5);
+  animation: trailFade 0.6s ease-out forwards;
 }

@@ -27,9 +27,9 @@ const details = [
 ];
 
 const roles = [
-  { icon: <EditVideoIcon />, title: 'Video Editor', desc: 'Creating compelling visual stories', color: '#3B82F6' },
-  { icon: <PythonIcon />, title: 'Aspiring Python Developer', desc: 'Building with Python & automation', color: '#2563EB' },
-  { icon: <SecurityIcon />, title: 'VAPT Intern', desc: 'Vulnerability Assessment & Penetration Testing', color: '#EAB308' },
+  { icon: <EditVideoIcon />, title: 'Video Editor', desc: 'Creating compelling visual stories', color: '#FBBF24' },
+  { icon: <PythonIcon />, title: 'Aspiring Python Developer', desc: 'Building with Python & automation', color: '#F59E0B' },
+  { icon: <SecurityIcon />, title: 'VAPT Intern', desc: 'Vulnerability Assessment & Penetration Testing', color: '#DC2626' },
 ];
 
 export default function About() {
@@ -79,45 +79,45 @@ export default function About() {
   }, []);
 
   const handleHover = (el, enter) => {
-    gsap.to(el, { x: enter ? 6 : 0, borderColor: enter ? '#3B82F6' : '#334155', duration: 0.3, ease: 'power2.out' });
+    gsap.to(el, { x: enter ? 6 : 0, borderColor: enter ? '#FBBF24' : '#2A2A2A', duration: 0.3, ease: 'power2.out' });
   };
   const handleStatHover = (el, enter) => {
-    gsap.to(el, { y: enter ? -5 : 0, borderColor: enter ? '#3B82F6' : '#1E293B', duration: 0.3, ease: 'power2.out' });
+    gsap.to(el, { y: enter ? -5 : 0, borderColor: enter ? '#FBBF24' : '#1E1E1E', boxShadow: enter ? '0 0 20px rgba(251,191,36,0.1)' : 'none', duration: 0.3, ease: 'power2.out' });
   };
 
   return (
     <Box ref={sectionRef} id="about" sx={{ py: 8, px: 2 }}>
       <Container maxWidth="lg">
         <Box ref={headerRef} sx={{ textAlign: 'center', mb: 5, opacity: 0 }}>
-          <Typography variant="caption" sx={{ color: '#3B82F6', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>About Me</Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '1.8rem', md: '2.8rem' } }}>
+          <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>About Me</Typography>
+          <Typography variant="h2" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '2rem', md: '3.2rem' }, letterSpacing: 3 }}>
             Get to know{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #3B82F6, #60A5FA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>me better</Box>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>me better</Box>
           </Typography>
         </Box>
 
         <Grid container spacing={2.5}>
           <Grid size={{ xs: 12, md: 7 }}>
-            <Card ref={bioRef} sx={{ p: 3.5, height: '100%', opacity: 0 }}>
-              <Typography variant="h5" sx={{ mb: 1.5 }}>Hello there! 👋</Typography>
+            <Card ref={bioRef} sx={{ p: 3.5, height: '100%', opacity: 0, borderLeft: '3px solid #FBBF24' }}>
+              <Typography variant="h5" sx={{ mb: 1.5, color: '#FBBF24' }}>Hello there!</Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 1 }}>
-                I'm <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Avinash Kotarya</Box>, a passionate and driven student from
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}> Indore, Madhya Pradesh, India</Box>. I'm currently pursuing my
-                B.Tech at <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>IPS Academy, Rajendra Nagar, Indore</Box>, where I started
+                I'm <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}>Avinash Kotarya</Box>, a passionate and driven student from
+                <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}> Indore, Madhya Pradesh, India</Box>. I'm currently pursuing my
+                B.Tech at <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}>IPS Academy, Rajendra Nagar, Indore</Box>, where I started
                 my academic journey in 2024.
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 1 }}>
                 I have a strong interest in software development, particularly in
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}> C++</Box> and <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Java</Box> programming languages. I'm also
-                exploring the fascinating world of <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Cyber Security</Box>,
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}> Generative AI</Box>, and
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}> VAPT (Vulnerability Assessment & Penetration Testing)</Box>.
+                <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}> C++</Box> and <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}>Java</Box> programming languages. I'm also
+                exploring the fascinating world of <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}>Cyber Security</Box>,
+                <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}> Generative AI</Box>, and
+                <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}> VAPT (Vulnerability Assessment & Penetration Testing)</Box>.
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 1 }}>
-                Beyond coding, I'm a skilled <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Video Editor</Box> with a creative eye for
+                Beyond coding, I'm a skilled <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}>Video Editor</Box> with a creative eye for
                 storytelling through visuals. I've produced event reels and highlight videos for multiple college clubs
-                including <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>Netryx Club</Box>, <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}>TCC Club</Box>, and
-                <Box component="span" sx={{ fontWeight: 700, color: 'text.primary' }}> Creative Club at IPS Academy</Box>.
+                including <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}>Netryx Club</Box>, <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}>TCC Club</Box>, and
+                <Box component="span" sx={{ fontWeight: 700, color: '#F8FAFC' }}> Creative Club at IPS Academy</Box>.
               </Typography>
               <Typography variant="body1" color="text.secondary">
                 My goal is to leverage technology to solve real-world problems and contribute
@@ -137,7 +137,7 @@ export default function About() {
                     onMouseEnter={(e) => handleHover(e.currentTarget, true)}
                     onMouseLeave={(e) => handleHover(e.currentTarget, false)}
                   >
-                    <Box sx={{ color: '#3B82F6', display: 'flex' }}>{d.icon}</Box>
+                    <Box sx={{ color: '#FBBF24', display: 'flex' }}>{d.icon}</Box>
                     <Box>
                       <Typography variant="caption" color="text.disabled" sx={{ textTransform: 'uppercase', letterSpacing: 1, display: 'block' }}>{d.label}</Typography>
                       <Typography variant="body2" fontWeight={600}>{d.value}</Typography>
@@ -150,11 +150,11 @@ export default function About() {
                 ref={rolesContainerRef}
                 sx={{
                   p: 2.5, opacity: 0,
-                  background: 'linear-gradient(135deg, #0F172A 0%, #0F172A 50%, #1E293B 100%)',
-                  border: '1px solid #334155',
+                  background: 'linear-gradient(135deg, #0A0A0A 0%, #0A0A0A 50%, #141414 100%)',
+                  border: '1px solid #2A2A2A',
                 }}
               >
-                <Typography variant="caption" sx={{ color: '#3B82F6', textTransform: 'uppercase', letterSpacing: 2, fontFamily: "'JetBrains Mono', monospace", display: 'block', mb: 1.5 }}>
+                <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 2, fontFamily: "'JetBrains Mono', monospace", display: 'block', mb: 1.5 }}>
                   What I Do
                 </Typography>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
@@ -163,11 +163,11 @@ export default function About() {
                       key={role.title}
                       ref={(el) => (roleCardsRef.current[i] = el)}
                       variant="outlined"
-                      sx={{ p: 1.5, display: 'flex', alignItems: 'center', gap: 1.2, borderColor: '#334155', cursor: 'default', opacity: 0 }}
+                      sx={{ p: 1.5, display: 'flex', alignItems: 'center', gap: 1.2, borderColor: '#2A2A2A', cursor: 'default', opacity: 0, '&:hover': { borderColor: role.color } }}
                       onMouseEnter={(e) => handleHover(e.currentTarget, true)}
                       onMouseLeave={(e) => handleHover(e.currentTarget, false)}
                     >
-                      <Box sx={{ width: 40, height: 40, borderRadius: 2, background: `${role.color}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: role.color, flexShrink: 0 }}>
+                      <Box sx={{ width: 40, height: 40, borderRadius: 1, background: `${role.color}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: role.color, flexShrink: 0 }}>
                         {role.icon}
                       </Box>
                       <Box>
@@ -188,11 +188,11 @@ export default function About() {
               <Grid key={s.label} size={{ xs: 6, md: 3 }}>
                 <Card
                   ref={(el) => (statCardsRef.current[i] = el)}
-                  sx={{ p: 2.5, textAlign: 'center', opacity: 0, cursor: 'default', '&:hover': { borderColor: '#3B82F6' } }}
+                  sx={{ p: 2.5, textAlign: 'center', opacity: 0, cursor: 'default', '&:hover': { borderColor: '#FBBF24' } }}
                   onMouseEnter={(e) => handleStatHover(e.currentTarget, true)}
                   onMouseLeave={(e) => handleStatHover(e.currentTarget, false)}
                 >
-                  <Typography variant="h4" sx={{ background: 'linear-gradient(135deg, #3B82F6, #60A5FA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{s.value}</Typography>
+                  <Typography variant="h4" sx={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 2, background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{s.value}</Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>{s.label}</Typography>
                 </Card>
               </Grid>

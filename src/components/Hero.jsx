@@ -8,6 +8,12 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const roles = ['Python Developer', 'Ethical Tech Advocate', 'Cyber Security Enthusiast', 'AI Learner', 'Tech Student'];
 
+const BatSymbolHero = () => (
+  <svg width="120" height="80" viewBox="0 0 28 20" fill="#FBBF24" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 30px rgba(251,191,36,0.4)) drop-shadow(0 0 60px rgba(251,191,36,0.2))' }}>
+    <path d="M14 0C14 0 12 2.5 9.5 4C7 5.5 4 6 1.5 5.3C0.5 5 0 4.2 0 4.2C0 4.2 1.5 7 4 8.8C6.5 10.5 9 10.5 10.5 9.8C9 11.8 6 14.5 3 17C3 17 7 15 11 13C12.5 12.2 13.5 12 14 12C14.5 12 15.5 12.2 17 13C21 15 25 17 25 17C22 14.5 19 11.8 17.5 9.8C19 10.5 21.5 10.5 24 8.8C26.5 7 28 4.2 28 4.2C28 4.2 27.5 5 26.5 5.3C24 6 21 5.5 18.5 4C16 2.5 14 0 14 0Z"/>
+  </svg>
+);
+
 export default function Hero() {
   const containerRef = useRef(null);
   const roleRef = useRef(null);
@@ -18,13 +24,14 @@ export default function Hero() {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       tl.fromTo('.hero-particle', { opacity: 0 }, { opacity: 1, duration: 0.5, stagger: 0.05 })
-        .fromTo('.hero-badge', { opacity: 0, y: 20, clipPath: 'circle(0% at 50% 50%)' }, { opacity: 1, y: 0, clipPath: 'circle(100% at 50% 50%)', duration: 0.8 }, 0.2)
-        .fromTo('.hero-name', { opacity: 0, y: 30, clipPath: 'inset(0 100% 0 0)' }, { opacity: 1, y: 0, clipPath: 'inset(0 0% 0 0)', duration: 1 }, 0.4)
-        .fromTo('.hero-role-wrapper', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 0.7)
-        .fromTo('.hero-bio', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 0.9)
-        .fromTo('.hero-buttons', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 1.1)
-        .fromTo('.hero-social', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 1.3)
-        .fromTo('.hero-scroll', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.6);
+        .fromTo('.hero-bat-symbol', { opacity: 0, scale: 0, rotation: -180 }, { opacity: 1, scale: 1, rotation: 0, duration: 1.2, ease: 'back.out(1.5)' }, 0.1)
+        .fromTo('.hero-badge', { opacity: 0, y: 20, clipPath: 'circle(0% at 50% 50%)' }, { opacity: 1, y: 0, clipPath: 'circle(100% at 50% 50%)', duration: 0.8 }, 0.5)
+        .fromTo('.hero-name', { opacity: 0, y: 30, clipPath: 'inset(0 100% 0 0)' }, { opacity: 1, y: 0, clipPath: 'inset(0 0% 0 0)', duration: 1 }, 0.7)
+        .fromTo('.hero-role-wrapper', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 1.0)
+        .fromTo('.hero-bio', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 1.2)
+        .fromTo('.hero-buttons', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7 }, 1.4)
+        .fromTo('.hero-social', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 1.6)
+        .fromTo('.hero-scroll', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.8);
     }, containerRef);
 
     return () => ctx.revert();
@@ -60,42 +67,60 @@ export default function Hero() {
       }}
     >
       <Box sx={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <Box sx={{ position: 'absolute', top: '10%', right: '10%', width: 400, height: 400, borderRadius: '50%', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(80px)' }} />
-        <Box sx={{ position: 'absolute', bottom: '10%', left: '10%', width: 300, height: 300, borderRadius: '50%', background: 'rgba(37, 99, 235, 0.03)', filter: 'blur(80px)' }} />
-        <Box sx={{ position: 'absolute', top: '40%', left: '50%', width: 200, height: 200, borderRadius: '50%', background: 'rgba(234, 179, 8, 0.03)', filter: 'blur(80px)' }} />
-        {[...Array(15)].map((_, i) => (
+        <Box sx={{ position: 'absolute', top: '5%', left: '50%', transform: 'translateX(-50%)', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(251,191,36,0.06) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+        <Box sx={{ position: 'absolute', bottom: '10%', left: '10%', width: 300, height: 300, borderRadius: '50%', background: 'rgba(251,191,36,0.02)', filter: 'blur(80px)' }} />
+        <Box sx={{ position: 'absolute', top: '40%', right: '15%', width: 200, height: 200, borderRadius: '50%', background: 'rgba(220,38,38,0.02)', filter: 'blur(80px)' }} />
+
+        {[...Array(20)].map((_, i) => (
           <Box
             key={i}
             className="hero-particle"
             sx={{
               position: 'absolute',
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              width: 3,
-              height: 3,
+              left: `${5 + Math.random() * 90}%`,
+              top: `${5 + Math.random() * 90}%`,
+              width: 2 + Math.random() * 2,
+              height: 2 + Math.random() * 2,
               borderRadius: '50%',
-              background: '#3B82F6',
+              background: i % 3 === 0 ? '#DC2626' : '#FBBF24',
               opacity: 0,
               animation: `float ${3 + Math.random() * 4}s ease-in-out ${Math.random() * 2}s infinite`,
+              boxShadow: `0 0 ${4 + Math.random() * 6}px ${i % 3 === 0 ? '#DC2626' : '#FBBF24'}40`,
               '@keyframes float': {
-                '0%, 100%': { transform: 'translateY(0)', opacity: 0.1 },
-                '50%': { transform: 'translateY(-20px)', opacity: 0.3 },
+                '0%, 100%': { transform: 'translateY(0)', opacity: 0.15 },
+                '50%': { transform: `translateY(-${15 + Math.random() * 20}px)`, opacity: 0.4 },
               },
             }}
           />
         ))}
+
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 200,
+            background: 'linear-gradient(0deg, #0A0A0A, transparent)',
+            zIndex: 1,
+          }}
+        />
       </Box>
 
-      <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-        <Box className="hero-badge" sx={{ opacity: 0, display: 'inline-flex', alignItems: 'center', gap: 1, px: 2, py: 0.75, border: '1px solid #334155', borderRadius: 50, mb: 3, background: 'rgba(59, 130, 246, 0.03)' }}>
-          <Box sx={{ width: 8, height: 8, borderRadius: '50%', background: '#3B82F6', animation: 'pulse 2s ease-in-out infinite', '@keyframes pulse': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.4 } } }} />
-          <Typography variant="body2" color="text.secondary">Welcome to my portfolio</Typography>
+      <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+        <Box className="hero-bat-symbol" sx={{ opacity: 0, mb: 4, display: 'flex', justifyContent: 'center' }}>
+          <BatSymbolHero />
+        </Box>
+
+        <Box className="hero-badge" sx={{ opacity: 0, display: 'inline-flex', alignItems: 'center', gap: 1, px: 2, py: 0.75, border: '1px solid #2A2A2A', borderRadius: 50, mb: 3, background: 'rgba(251,191,36,0.03)' }}>
+          <Box sx={{ width: 8, height: 8, borderRadius: '50%', background: '#FBBF24', animation: 'pulse 2s ease-in-out infinite', '@keyframes pulse': { '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.4 } } }} />
+          <Typography variant="body2" color="text.secondary">Welcome to the Gotham Portfolio</Typography>
         </Box>
 
         <Box className="hero-name" sx={{ opacity: 0 }}>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.2rem', md: '4rem' }, mb: 1 }}>
+          <Typography variant="h1" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '3rem', md: '5.5rem' }, mb: 1, letterSpacing: 4, lineHeight: 1 }}>
             Hi, I'm{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #3B82F6, #60A5FA)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', textShadow: 'none', filter: 'drop-shadow(0 0 20px rgba(251,191,36,0.3))' }}>
               Avinash Kotarya
             </Box>
           </Typography>
@@ -106,7 +131,7 @@ export default function Hero() {
             <span style={{ color: '#64748B', fontWeight: 400 }}>{/^[aeiou]/i.test(roles[roleIndex]) ? "I'm an " : "I'm a "}</span>
             <span
               ref={roleRef}
-              style={{ color: '#3B82F6', fontFamily: "'JetBrains Mono', monospace", fontWeight: 600 }}
+              style={{ color: '#FBBF24', fontFamily: "'JetBrains Mono', monospace", fontWeight: 600, textShadow: '0 0 10px rgba(251,191,36,0.3)' }}
             >
               {roles[roleIndex]}
             </span>
@@ -125,12 +150,14 @@ export default function Hero() {
           <Link
             to="/contact"
             style={{
-              display: 'inline-flex', alignItems: 'center', gap: 1, padding: '10px 24px',
-              background: 'linear-gradient(135deg, #3B82F6, #2563EB)',
-              color: '#fff', borderRadius: 8, fontWeight: 600, fontSize: '0.95rem',
+              display: 'inline-flex', alignItems: 'center', gap: 1, padding: '12px 28px',
+              background: 'linear-gradient(135deg, #FBBF24, #D97706)',
+              color: '#0A0A0A', borderRadius: 4, fontWeight: 700, fontSize: '0.95rem',
               textDecoration: 'none', cursor: 'pointer',
-              boxShadow: '0 4px 14px rgba(59, 130, 246, 0.3)',
+              boxShadow: '0 4px 20px rgba(251, 191, 36, 0.3)',
               transition: 'all 0.3s ease',
+              textTransform: 'uppercase',
+              letterSpacing: 1,
             }}
           >
             Get In Touch
@@ -138,10 +165,12 @@ export default function Hero() {
           <Link
             to="/projects"
             style={{
-              display: 'inline-flex', alignItems: 'center', gap: 1, padding: '10px 24px',
-              border: '1px solid #334155', color: '#F8FAFC', borderRadius: 8,
+              display: 'inline-flex', alignItems: 'center', gap: 1, padding: '12px 28px',
+              border: '1px solid #2A2A2A', color: '#F8FAFC', borderRadius: 4,
               fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none', cursor: 'pointer',
               transition: 'all 0.3s ease',
+              textTransform: 'uppercase',
+              letterSpacing: 1,
             }}
           >
             View Projects
@@ -153,11 +182,11 @@ export default function Hero() {
             component="a" href="https://linkedin.com/in/avinash-kotarya-0a37b1331" target="_blank"
             sx={{
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              width: 44, height: 44, borderRadius: 2,
-              border: '1px solid #334155', color: '#94A3B8',
+              width: 44, height: 44, borderRadius: 1,
+              border: '1px solid #2A2A2A', color: '#94A3B8',
               textDecoration: 'none',
               transition: 'all 0.3s ease',
-              '&:hover': { borderColor: '#3B82F6', color: '#3B82F6', transform: 'translateY(-4px) scale(1.1)' },
+              '&:hover': { borderColor: '#FBBF24', color: '#FBBF24', transform: 'translateY(-4px) scale(1.1)', boxShadow: '0 4px 20px rgba(251,191,36,0.2)' },
             }}
           >
             <LinkedInIcon />
@@ -166,11 +195,11 @@ export default function Hero() {
             component="a" href="mailto:avinashkotarya@email.com"
             sx={{
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              width: 44, height: 44, borderRadius: 2,
-              border: '1px solid #334155', color: '#94A3B8',
+              width: 44, height: 44, borderRadius: 1,
+              border: '1px solid #2A2A2A', color: '#94A3B8',
               textDecoration: 'none',
               transition: 'all 0.3s ease',
-              '&:hover': { borderColor: '#3B82F6', color: '#3B82F6', transform: 'translateY(-4px) scale(1.1)' },
+              '&:hover': { borderColor: '#FBBF24', color: '#FBBF24', transform: 'translateY(-4px) scale(1.1)', boxShadow: '0 4px 20px rgba(251,191,36,0.2)' },
             }}
           >
             <EmailIcon />
@@ -181,10 +210,10 @@ export default function Hero() {
           className="hero-scroll"
           sx={{
             opacity: 0, position: 'absolute', bottom: 2, left: '50%', transform: 'translateX(-50%)',
-            color: '#475569',
+            color: '#64748B',
             animation: 'bounce 2s ease-in-out infinite',
             '@keyframes bounce': { '0%, 100%': { transform: 'translateX(-50%) translateY(0)' }, '50%': { transform: 'translateX(-50%) translateY(10px)' } },
-            '&:hover': { color: '#3B82F6' },
+            '&:hover': { color: '#FBBF24' },
           }}
         >
           <ArrowDownwardIcon />

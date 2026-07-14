@@ -18,7 +18,7 @@ const DotMatrixLoader = ({ size = 'medium' }) => {
           const delay = (row + col) * 0.1;
           return (
             <Box key={i} sx={{
-              width: dot, height: dot, borderRadius: '50%', background: '#3B82F6',
+              width: dot, height: dot, borderRadius: '50%', background: '#FBBF24',
               animation: `dotPulse 1.5s ease-in-out ${delay}s infinite`,
               '@keyframes dotPulse': {
                 '0%, 100%': { opacity: 0.2, transform: 'scale(0.8)' },
