@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 *,
 *::before,
@@ -9,17 +9,20 @@
 }
 
 :root {
-  --bg-primary: #0A0A0A;
-  --bg-secondary: #0A0A0A;
-  --bg-card: #141414;
-  --border: #2A2A2A;
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  --accent: #FBBF24;
-  --accent-dim: #D97706;
-  --glow: rgba(251, 191, 36, 0.15);
-  --red: #DC2626;
+  --bg-primary: #0A0E14;
+  --bg-secondary: #0A0E14;
+  --bg-card: #121820;
+  --border: #1E2A3A;
+  --text-primary: #F0F4F8;
+  --text-secondary: #8899AA;
+  --text-muted: #556677;
+  --red: #E31937;
+  --blue: #0066CC;
+  --cyan: #00D4FF;
+  --glow-red: rgba(227, 25, 55, 0.15);
+  --glow-blue: rgba(0, 102, 204, 0.15);
+  --glow-cyan: rgba(0, 212, 255, 0.15);
+  --accent: #E31937;
 }
 
 html {
@@ -29,13 +32,13 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
-  background: #0A0A0A;
-  color: #F8FAFC;
+  background: #0A0E14;
+  color: #F0F4F8;
 }
 
 ::selection {
-  background: #FBBF24;
-  color: #0A0A0A;
+  background: #E31937;
+  color: #0A0E14;
 }
 
 a {
@@ -59,7 +62,7 @@ a {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--cyan);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 0.75rem;
@@ -74,7 +77,7 @@ a {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  background: linear-gradient(135deg, #E31937, #00D4FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -85,76 +88,133 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #0A0E14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #FBBF24;
+  background: linear-gradient(180deg, #E31937, #0066CC);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F59E0B;
+  background: linear-gradient(180deg, #FF2040, #0088FF);
 }
 
-@keyframes batFly {
-  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0; }
-  10% { opacity: 0.7; }
-  50% { transform: translate(40vw, -30vh) rotate(15deg) scale(0.8); opacity: 0.5; }
-  90% { opacity: 0.3; }
-  100% { transform: translate(80vw, -60vh) rotate(-10deg) scale(0.5); opacity: 0; }
+/* ===== MECH CARD SYSTEM ===== */
+.mech-card {
+  position: relative;
+  background-color: var(--bg-card);
+  background-image: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 212, 255, 0.07),
+    transparent 40%
+  );
+  border: 1px solid var(--border) !important;
+  border-radius: 2px !important;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-@keyframes batFlyReverse {
-  0% { transform: translate(0, 0) rotate(0deg) scale(0.8); opacity: 0; }
-  10% { opacity: 0.5; }
-  50% { transform: translate(-30vw, -40vh) rotate(-20deg) scale(0.6); opacity: 0.4; }
-  90% { opacity: 0.2; }
-  100% { transform: translate(-70vw, -50vh) rotate(15deg) scale(0.3); opacity: 0; }
-}
-
-@keyframes batWing {
-  0%, 100% { transform: scaleX(1); }
-  50% { transform: scaleX(0.7); }
-}
-
-@keyframes batSignalSweep {
-  0% { transform: translateX(-50%) rotate(-20deg); opacity: 0.3; }
-  50% { transform: translateX(-50%) rotate(20deg); opacity: 0.6; }
-  100% { transform: translateX(-50%) rotate(-20deg); opacity: 0.3; }
-}
-
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.1), 0 0 40px rgba(251, 191, 36, 0.05); }
-  50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.2), 0 0 60px rgba(251, 191, 36, 0.1); }
-}
-
-@keyframes smokeRise {
-  0% { transform: translateY(0) scale(1); opacity: 0.15; }
-  50% { opacity: 0.08; }
-  100% { transform: translateY(-100px) scale(2); opacity: 0; }
-}
-
-@keyframes trailFade {
-  0% { opacity: 0.6; transform: scaleX(1); }
-  100% { opacity: 0; transform: scaleX(0.3); }
-}
-
-.bat-trail {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  width: 20px;
-  height: 20px;
-}
-
-.bat-trail::after {
+.mech-card::before {
   content: '';
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #FBBF24;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #FBBF24, 0 0 16px rgba(251, 191, 36, 0.5);
-  animation: trailFade 0.6s ease-out forwards;
+  top: 0; left: 0;
+  width: 18px; height: 18px;
+  border-top: 2px solid var(--cyan);
+  border-left: 2px solid var(--cyan);
+  opacity: 0.35;
+  z-index: 2;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.mech-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 18px; height: 18px;
+  border-bottom: 2px solid var(--red);
+  border-right: 2px solid var(--red);
+  opacity: 0.35;
+  z-index: 2;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.mech-card:hover {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 60px rgba(0, 212, 255, 0.02);
+}
+
+.mech-card:hover::before,
+.mech-card:hover::after {
+  opacity: 0.85;
+  width: 28px;
+  height: 28px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes gearSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gearSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes energyPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.1), 0 0 40px rgba(0, 212, 255, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.1); }
+}
+
+@keyframes transformGlow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(227, 25, 55, 0.3)); }
+  33% { filter: drop-shadow(0 0 12px rgba(0, 102, 204, 0.4)); }
+  66% { filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.4)); }
+}
+
+@keyframes mechScan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes sparkFade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0) translateY(-30px); }
+}
+
+@keyframes circuitPulse {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.08; }
+}
+
+@keyframes floatDebris {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.3; }
+  100% { transform: translateY(-40px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes autobots {
+  0% { opacity: 0; transform: scale(0.9); filter: blur(4px); }
+  50% { opacity: 1; transform: scale(1.02); filter: blur(0px); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0px); }
+}
+
+@keyframes shieldPulse {
+  0%, 100% { border-color: rgba(0, 212, 255, 0.2); }
+  50% { border-color: rgba(0, 212, 255, 0.5); }
+}
+
+@keyframes scanLine {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+@keyframes glowBorder {
+  0%, 100% { border-color: rgba(0, 212, 255, 0.2); }
+  50% { border-color: rgba(0, 212, 255, 0.5); }
 }

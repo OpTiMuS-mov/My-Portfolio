@@ -12,30 +12,33 @@ const categories = [
   {
     title: 'Cyber Security',
     icon: <SecurityIcon />,
+    color: '#E31937',
     skills: [
-      { name: 'Cyber Security', color: '#F59E0B', level: 85 },
-      { name: 'Penetration Testing', color: '#DC2626', level: 80 },
-      { name: 'Network Security', color: '#FBBF24', level: 75 },
-      { name: 'OSINT', color: '#8B5CF6', level: 70 },
+      { name: 'Cyber Security', color: '#E31937', level: 85 },
+      { name: 'Penetration Testing', color: '#FF4060', level: 80 },
+      { name: 'Network Security', color: '#0066CC', level: 75 },
+      { name: 'OSINT', color: '#00D4FF', level: 70 },
     ],
   },
   {
     title: 'Security Tools',
     icon: <DevicesIcon />,
+    color: '#0066CC',
     skills: [
-      { name: 'Kali Linux', color: '#FCC624', level: 80 },
-      { name: 'Wireshark', color: '#1679A7', level: 75 },
-      { name: 'Burp Suite', color: '#FF6633', level: 70 },
-      { name: 'Nmap', color: '#4B8BBE', level: 75 },
+      { name: 'Kali Linux', color: '#0066CC', level: 80 },
+      { name: 'Wireshark', color: '#00D4FF', level: 75 },
+      { name: 'Burp Suite', color: '#E31937', level: 70 },
+      { name: 'Nmap', color: '#0088DD', level: 75 },
     ],
   },
   {
     title: 'Programming & Development',
     icon: <MemoryIcon />,
+    color: '#00D4FF',
     skills: [
-      { name: 'Python', color: '#3776AB', level: 80 },
-      { name: 'Java', color: '#ED8B00', level: 75 },
-      { name: 'Git & GitHub', color: '#F05032', level: 70 },
+      { name: 'Python', color: '#00D4FF', level: 80 },
+      { name: 'Java', color: '#E31937', level: 75 },
+      { name: 'Git & GitHub', color: '#0066CC', level: 70 },
     ],
   },
 ];
@@ -45,18 +48,18 @@ function SkillBar({ color, level }) {
     <Box sx={{ mb: 1.5 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
         <Typography variant="body2" fontWeight={600}></Typography>
-        <Typography variant="caption" color="text.disabled">{level}%</Typography>
+        <Typography variant="caption" sx={{ color: '#556677' }}>{level}%</Typography>
       </Box>
       <LinearProgress
         variant="determinate"
         value={level}
         sx={{
           height: 6, borderRadius: 3,
-          backgroundColor: '#1E1E1E',
+          backgroundColor: '#0D1520',
           '& .MuiLinearProgress-bar': {
             borderRadius: 3,
-            background: `linear-gradient(90deg, ${color}, ${color}dd)`,
-            boxShadow: `0 0 8px ${color}40`,
+            background: `linear-gradient(90deg, ${color}, ${color}cc)`,
+            boxShadow: `0 0 10px ${color}50`,
           },
         }}
       />
@@ -98,8 +101,8 @@ export default function Skills() {
   const handleTileHover = (el, enter) => {
     gsap.to(el, {
       y: enter ? -6 : 0,
-      boxShadow: enter ? `0 10px 30px ${el.dataset.color || '#FBBF24'}15` : 'none',
-      borderColor: enter ? '#FBBF24' : '#2A2A2A',
+      boxShadow: enter ? `0 10px 30px ${el.dataset.color || '#00D4FF'}20` : 'none',
+      borderColor: enter ? '#00D4FF' : '#1E2A3A',
       duration: 0.3, ease: 'power2.out',
     });
   };
@@ -111,22 +114,22 @@ export default function Skills() {
   };
 
   return (
-    <Box ref={sectionRef} id="skills" sx={{ py: 8, px: 2, background: '#0A0A0A' }}>
+    <Box ref={sectionRef} id="skills" sx={{ py: 8, px: 2, background: '#0A0E14' }}>
       <Container maxWidth="lg">
         <Box ref={headerRef} sx={{ textAlign: 'center', mb: 5, opacity: 0 }}>
-          <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Skills</Typography>
-          <Typography variant="h2" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '2rem', md: '3.2rem' }, letterSpacing: 3 }}>
+          <Typography variant="caption" sx={{ color: '#00D4FF', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'Orbitron', sans-serif", fontSize: '0.7rem' }}>Skills</Typography>
+          <Typography variant="h2" sx={{ fontFamily: "'Orbitron', sans-serif", fontSize: { xs: '1.8rem', md: '2.8rem' }, letterSpacing: 3 }}>
             Technologies I{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>work with</Box>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #E31937, #00D4FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>work with</Box>
           </Typography>
         </Box>
 
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
           {categories.map((cat, ci) => (
-            <Card key={cat.title} ref={(el) => (categoryCardsRef.current[ci] = el)} sx={{ p: 3, opacity: 0, borderTop: '2px solid #FBBF24' }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2.5, color: '#FBBF24' }}>
+            <Card key={cat.title} ref={(el) => (categoryCardsRef.current[ci] = el)} className="mech-card" sx={{ p: 3, opacity: 0, borderTop: `2px solid ${cat.color}` }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2.5, color: cat.color }}>
                 {cat.icon}
-                <Typography variant="h6" sx={{ fontFamily: "'JetBrains Mono', monospace" }}>{cat.title}</Typography>
+                <Typography variant="h6" sx={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.9rem', letterSpacing: 1 }}>{cat.title}</Typography>
               </Box>
               <Grid container spacing={2}>
                 {cat.skills.map((skill, si) => (
@@ -134,7 +137,8 @@ export default function Skills() {
                     <Card
                       ref={(el) => { skillTilesRef.current[ci * 10 + si] = el; }}
                       variant="outlined"
-                      sx={{ p: 2.5, textAlign: 'center', borderColor: '#2A2A2A', cursor: 'default', opacity: 0 }}
+                      className="mech-card"
+                      sx={{ p: 2.5, textAlign: 'center', cursor: 'default', opacity: 0 }}
                       data-color={skill.color}
                       onMouseEnter={(e) => handleTileHover(e.currentTarget, true)}
                       onMouseLeave={(e) => handleTileHover(e.currentTarget, false)}

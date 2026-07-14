@@ -16,8 +16,8 @@ import BuildIcon from '@mui/icons-material/Build';
 gsap.registerPlugin(ScrollTrigger);
 
 const certColors = {
-  Cpp: '#00599C', Java: '#ED8B00', Cyber: '#FBBF24', AI: '#2563EB',
-  COFPS: '#F59E0B', VAPT: '#DC2626', ICIP: '#8B5CF6', Workshop: '#06B6D4',
+  Cpp: '#0066CC', Java: '#E31937', Cyber: '#E31937', AI: '#00D4FF',
+  COFPS: '#0066CC', VAPT: '#FF4060', ICIP: '#00D4FF', Workshop: '#0088DD',
 };
 
 const certIcons = {
@@ -76,26 +76,26 @@ export default function Education() {
   }, []);
 
   const handleCardHover = (el, enter) => {
-    gsap.to(el, { x: enter ? 6 : 0, borderColor: enter ? '#FBBF24' : '#2A2A2A', duration: 0.3, ease: 'power2.out' });
+    gsap.to(el, { x: enter ? 6 : 0, borderColor: enter ? '#00D4FF' : '#1E2A3A', duration: 0.3, ease: 'power2.out' });
   };
   const handleCertHover = (el, enter) => {
-    gsap.to(el, { y: enter ? -5 : 0, borderColor: enter ? '#FBBF24' : '#2A2A2A', duration: 0.3, ease: 'power2.out' });
+    gsap.to(el, { y: enter ? -5 : 0, borderColor: enter ? '#00D4FF' : '#1E2A3A', duration: 0.3, ease: 'power2.out' });
   };
 
   const educationData = [
-    { title: 'B.Tech (Bachelor of Technology)', school: 'IPS Academy, Rajendra Nagar, Indore', period: '2024 – Present', status: 'In Progress', statusColor: '#16a34a', desc: 'Pursuing a degree in technology with a focus on computer science and software development. Actively learning programming languages, data structures, and modern technologies.', icon: <AcademicCapIcon /> },
-    { title: 'Higher Secondary (12th)', school: 'Kendriya Vidyalaya No.2, Indore, MP', period: 'Completed', status: 'Completed', statusColor: '#FBBF24', desc: 'Completed higher secondary education with a focus on Science and Mathematics. Built a strong academic foundation that sparked my interest in technology and problem-solving.', icon: <BookIcon /> },
-    { title: 'Secondary (10th)', school: 'Kendriya Vidyalaya No.2, Indore, MP', period: 'Completed', status: 'Completed', statusColor: '#FBBF24', desc: 'Completed secondary education at Kendriya Vidyalaya with a solid foundation in Science, Mathematics, and English.', icon: <AcademicCapIcon /> },
+    { title: 'B.Tech (Bachelor of Technology)', school: 'IPS Academy, Rajendra Nagar, Indore', period: '2024 – Present', status: 'In Progress', statusColor: '#00D4FF', desc: 'Pursuing a degree in technology with a focus on computer science and software development. Actively learning programming languages, data structures, and modern technologies.', icon: <AcademicCapIcon /> },
+    { title: 'Higher Secondary (12th)', school: 'Kendriya Vidyalaya No.2, Indore, MP', period: 'Completed', status: 'Completed', statusColor: '#0066CC', desc: 'Completed higher secondary education with a focus on Science and Mathematics. Built a strong academic foundation that sparked my interest in technology and problem-solving.', icon: <BookIcon /> },
+    { title: 'Secondary (10th)', school: 'Kendriya Vidyalaya No.2, Indore, MP', period: 'Completed', status: 'Completed', statusColor: '#0066CC', desc: 'Completed secondary education at Kendriya Vidyalaya with a solid foundation in Science, Mathematics, and English.', icon: <AcademicCapIcon /> },
   ];
 
   return (
-    <Box ref={sectionRef} id="education" sx={{ py: 8, px: 2, background: '#0A0A0A' }}>
+    <Box ref={sectionRef} id="education" sx={{ py: 8, px: 2, background: '#0A0E14' }}>
       <Container maxWidth="lg">
         <Box ref={headerRef} sx={{ textAlign: 'center', mb: 5, opacity: 0 }}>
-          <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Education</Typography>
-          <Typography variant="h2" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '2rem', md: '3.2rem' }, letterSpacing: 3 }}>
+          <Typography variant="caption" sx={{ color: '#00D4FF', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'Orbitron', sans-serif", fontSize: '0.7rem' }}>Education</Typography>
+          <Typography variant="h2" sx={{ fontFamily: "'Orbitron', sans-serif", fontSize: { xs: '1.8rem', md: '2.8rem' }, letterSpacing: 3 }}>
             Academic{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>journey</Box>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #E31937, #00D4FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>journey</Box>
           </Typography>
         </Box>
 
@@ -106,33 +106,34 @@ export default function Education() {
                 <Card
                   key={edu.title}
                   ref={(el) => (eduCardsRef.current[i] = el)}
+                  className="mech-card"
                   sx={{ p: 3, borderLeft: `4px solid ${edu.statusColor}`, opacity: 0, cursor: 'default' }}
                   onMouseEnter={(e) => handleCardHover(e.currentTarget, true)}
                   onMouseLeave={(e) => handleCardHover(e.currentTarget, false)}
                 >
                   <Box sx={{ display: 'flex', gap: 2, alignItems: 'flex-start', mb: 2 }}>
-                    <Box sx={{ width: 48, height: 48, borderRadius: 1, background: 'rgba(251,191,36,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FBBF24' }}>
+                    <Box sx={{ width: 48, height: 48, borderRadius: 1, background: `${edu.statusColor}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: edu.statusColor }}>
                       {edu.icon}
                     </Box>
                     <Box>
                       <Typography variant="h6" sx={{ fontSize: '1.1rem' }}>{edu.title}</Typography>
-                      <Typography variant="body2" color="text.secondary">{edu.school}</Typography>
+                      <Typography variant="body2" sx={{ color: '#8899AA' }}>{edu.school}</Typography>
                     </Box>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
-                    <Typography variant="caption" sx={{ fontFamily: "'JetBrains Mono', monospace", color: '#64748B' }}>{edu.period}</Typography>
-                    <Typography variant="caption" sx={{ fontWeight: 600, px: 1, py: 0.25, borderRadius: 50, fontSize: '0.7rem', background: `${edu.statusColor}15`, color: edu.statusColor }}>{edu.status}</Typography>
+                    <Typography variant="caption" sx={{ fontFamily: "'JetBrains Mono', monospace", color: '#556677' }}>{edu.period}</Typography>
+                    <Typography variant="caption" sx={{ fontWeight: 600, px: 1, py: 0.25, borderRadius: 50, fontSize: '0.7rem', background: `${edu.statusColor}15`, color: edu.statusColor, fontFamily: "'Orbitron', sans-serif" }}>{edu.status}</Typography>
                   </Box>
-                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>{edu.desc}</Typography>
+                  <Typography variant="body2" sx={{ color: '#8899AA', lineHeight: 1.7 }}>{edu.desc}</Typography>
                 </Card>
               ))}
             </Box>
           </Grid>
 
           <Grid size={{ xs: 12, md: 5 }}>
-            <Box ref={certHeaderRef} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, color: '#FBBF24', opacity: 0 }}>
+            <Box ref={certHeaderRef} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2, color: '#E31937', opacity: 0 }}>
               <TrophyIcon />
-              <Typography variant="h6" sx={{ fontFamily: "'JetBrains Mono', monospace" }}>Certifications</Typography>
+              <Typography variant="h6" sx={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.9rem', letterSpacing: 1 }}>Certifications</Typography>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
               {certifications.map((cert, i) => {
@@ -142,7 +143,8 @@ export default function Education() {
                     key={cert.title}
                     ref={(el) => (certCardsRef.current[i] = el)}
                     variant="outlined"
-                    sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 1.5, borderColor: '#2A2A2A', cursor: 'default', opacity: 0 }}
+                    className="mech-card"
+                    sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 1.5, cursor: 'default', opacity: 0 }}
                     onMouseEnter={(e) => handleCertHover(e.currentTarget, true)}
                     onMouseLeave={(e) => handleCertHover(e.currentTarget, false)}
                   >
@@ -151,7 +153,7 @@ export default function Education() {
                     </Box>
                     <Box>
                       <Typography variant="body2" fontWeight={600} sx={{ lineHeight: 1.2 }}>{cert.title}</Typography>
-                      <Typography variant="caption" color="text.disabled" sx={{ lineHeight: 1.3 }}>{cert.issuer}</Typography>
+                      <Typography variant="caption" sx={{ color: '#556677', lineHeight: 1.3 }}>{cert.issuer}</Typography>
                     </Box>
                   </Card>
                 );

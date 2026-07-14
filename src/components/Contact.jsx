@@ -33,21 +33,21 @@ const sendToWhatsApp = (values) => {
 };
 
 const contactItems = [
-  { icon: <SiGmail size={20} />, label: 'Email', value: 'avinashkotarya@email.com' },
-  { icon: <SiGooglemaps size={20} />, label: 'Location', value: 'Indore, Madhya Pradesh, India' },
-  { icon: <FaLinkedinIn size={20} />, label: 'LinkedIn', value: 'Connect on LinkedIn', link: 'https://linkedin.com/in/avinash-kotarya-0a37b1331' },
-  { icon: <SiGithub size={20} />, label: 'GitHub', value: 'View Projects', link: 'https://github.com/OpTiMuS-mov' },
-  { icon: <SiInstagram size={20} />, label: 'Instagram', value: '@avinx.mov', link: 'https://instagram.com/avinx.mov' },
-  { icon: <SiWhatsapp size={20} />, label: 'WhatsApp', value: '+91 7724014443', link: `https://wa.me/${WHATSAPP_NUMBER}` },
+  { icon: <SiGmail size={20} />, label: 'Email', value: 'avinashkotarya@email.com', color: '#E31937' },
+  { icon: <SiGooglemaps size={20} />, label: 'Location', value: 'Indore, Madhya Pradesh, India', color: '#0066CC' },
+  { icon: <FaLinkedinIn size={20} />, label: 'LinkedIn', value: 'Connect on LinkedIn', link: 'https://linkedin.com/in/avinash-kotarya-0a37b1331', color: '#0066CC' },
+  { icon: <SiGithub size={20} />, label: 'GitHub', value: 'View Projects', link: 'https://github.com/OpTiMuS-mov', color: '#00D4FF' },
+  { icon: <SiInstagram size={20} />, label: 'Instagram', value: '@avinx.mov', link: 'https://instagram.com/avinx.mov', color: '#E31937' },
+  { icon: <SiWhatsapp size={20} />, label: 'WhatsApp', value: '+91 7724014443', link: `https://wa.me/${WHATSAPP_NUMBER}`, color: '#00D4FF' },
 ];
 
 const inputStyle = {
   width: '100%',
   padding: '12px 16px',
   borderRadius: 4,
-  background: '#0A0A0A',
-  border: '1px solid #2A2A2A',
-  color: '#F8FAFC',
+  background: '#0A0E14',
+  border: '1px solid #1E2A3A',
+  color: '#F0F4F8',
   fontSize: '0.9rem',
   outline: 'none',
   fontFamily: "'Inter', sans-serif",
@@ -101,7 +101,7 @@ export default function Contact() {
   }, []);
 
   const handleContactHover = (el, enter) => {
-    gsap.to(el, { x: enter ? 8 : 0, borderColor: enter ? '#FBBF24' : '#2A2A2A', duration: 0.3, ease: 'power2.out' });
+    gsap.to(el, { x: enter ? 8 : 0, borderColor: enter ? '#00D4FF' : '#1E2A3A', duration: 0.3, ease: 'power2.out' });
   };
   const handleBtnHover = (el, enter) => {
     gsap.to(el, { scale: enter ? 1.02 : 1, duration: 0.25, ease: 'power2.out' });
@@ -112,19 +112,19 @@ export default function Contact() {
       <Toaster position="top-center" />
       <Container maxWidth="lg">
         <Box ref={headerRef} sx={{ textAlign: 'center', mb: 5, opacity: 0 }}>
-          <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Contact</Typography>
-          <Typography variant="h2" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '2rem', md: '3.2rem' }, letterSpacing: 3 }}>
+          <Typography variant="caption" sx={{ color: '#00D4FF', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'Orbitron', sans-serif", fontSize: '0.7rem' }}>Contact</Typography>
+          <Typography variant="h2" sx={{ fontFamily: "'Orbitron', sans-serif", fontSize: { xs: '1.8rem', md: '2.8rem' }, letterSpacing: 3 }}>
             Let's{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>connect</Box>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #E31937, #00D4FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>connect</Box>
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ mt: 1 }}>Have a question or want to work together? Feel free to reach out!</Typography>
+          <Typography variant="body1" sx={{ color: '#8899AA', mt: 1 }}>Have a question or want to work together? Feel free to reach out!</Typography>
         </Box>
 
         <Grid container spacing={2.5}>
           <Grid size={{ xs: 12, md: 5 }}>
             <Box ref={leftColRef} sx={{ opacity: 0 }}>
-              <Typography variant="h6" sx={{ mb: 1, color: '#FBBF24' }}>Get in touch</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+              <Typography variant="h6" sx={{ mb: 1, color: '#00D4FF', fontFamily: "'Orbitron', sans-serif", fontSize: '0.9rem' }}>Get in touch</Typography>
+              <Typography variant="body2" sx={{ color: '#8899AA', mb: 3 }}>
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of something exciting.
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
@@ -137,16 +137,17 @@ export default function Contact() {
                     href={item.link || undefined}
                     target={item.link ? '_blank' : undefined}
                     rel={item.link ? 'noreferrer' : undefined}
-                    sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, borderColor: '#2A2A2A', cursor: item.link ? 'pointer' : 'default', opacity: 0, textDecoration: 'none', color: 'inherit', '&:hover': { borderColor: '#FBBF24' } }}
+                    className="mech-card"
+                    sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: item.link ? 'pointer' : 'default', opacity: 0, textDecoration: 'none', color: 'inherit', '&:hover': { borderColor: item.color || '#00D4FF' } }}
                     onMouseEnter={(e) => handleContactHover(e.currentTarget, true)}
                     onMouseLeave={(e) => handleContactHover(e.currentTarget, false)}
                   >
-                    <Box sx={{ width: 42, height: 42, borderRadius: 1, background: 'rgba(251,191,36,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FBBF24', flexShrink: 0 }}>
+                    <Box sx={{ width: 42, height: 42, borderRadius: 1, background: `${item.color || '#00D4FF'}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: item.color || '#00D4FF', flexShrink: 0 }}>
                       {item.icon}
                     </Box>
                     <Box>
-                      <Typography variant="caption" color="text.disabled" sx={{ textTransform: 'uppercase', letterSpacing: 1, display: 'block' }}>{item.label}</Typography>
-                      <Typography variant="body2" fontWeight={600} sx={item.link ? { color: '#FBBF24' } : {}}>
+                      <Typography variant="caption" sx={{ color: '#556677', textTransform: 'uppercase', letterSpacing: 1, display: 'block', fontFamily: "'Orbitron', sans-serif", fontSize: '0.6rem' }}>{item.label}</Typography>
+                      <Typography variant="body2" fontWeight={600} sx={item.link ? { color: item.color || '#00D4FF' } : {}}>
                         {item.value}
                       </Typography>
                     </Box>
@@ -157,9 +158,24 @@ export default function Contact() {
           </Grid>
 
           <Grid size={{ xs: 12, md: 7 }}>
-            <Card ref={formCardRef} sx={{ p: 3.5, opacity: 0, borderTop: '2px solid #FBBF24' }}>
-              <Typography variant="h6" sx={{ mb: 0.5, color: '#FBBF24' }}>Send a Message</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>Fill out the form below and I'll get back to you soon.</Typography>
+            <Card ref={formCardRef} className="mech-card" sx={{ p: 3.5, opacity: 0, borderTop: '2px solid #E31937', position: 'relative', overflow: 'visible' }}>
+              <Box sx={{ position: 'absolute', top: -14, left: 20, opacity: 0.7, animation: 'gearSpin 8s linear infinite', transformOrigin: 'center' }}>
+                <svg width="28" height="28" viewBox="0 0 100 100" fill="#E31937" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 6px rgba(227,25,55,0.4))' }}>
+                  <path d="M50 10 L55 25 L70 15 L65 30 L85 25 L72 38 L95 42 L75 50 L95 58 L72 62 L85 75 L65 70 L70 85 L55 75 L50 90 L45 75 L30 85 L35 70 L15 75 L28 62 L5 58 L25 50 L5 42 L28 38 L15 25 L35 30 L30 15 L45 25 Z"/>
+                </svg>
+              </Box>
+              <Box sx={{ position: 'absolute', top: -10, right: 30, opacity: 0.5, animation: 'gearSpinReverse 10s linear infinite', transformOrigin: 'center' }}>
+                <svg width="22" height="22" viewBox="0 0 100 100" fill="#00D4FF" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 4px rgba(0,212,255,0.3))' }}>
+                  <path d="M50 10 L55 25 L70 15 L65 30 L85 25 L72 38 L95 42 L75 50 L95 58 L72 62 L85 75 L65 70 L70 85 L55 75 L50 90 L45 75 L30 85 L35 70 L15 75 L28 62 L5 58 L25 50 L5 42 L28 38 L15 25 L35 30 L30 15 L45 25 Z"/>
+                </svg>
+              </Box>
+              <Box sx={{ position: 'absolute', bottom: -10, right: 15, opacity: 0.4, animation: 'gearSpin 12s linear infinite', transformOrigin: 'center' }}>
+                <svg width="18" height="18" viewBox="0 0 100 100" fill="#0066CC" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 0 3px rgba(0,102,204,0.3))' }}>
+                  <path d="M50 10 L55 25 L70 15 L65 30 L85 25 L72 38 L95 42 L75 50 L95 58 L72 62 L85 75 L65 70 L70 85 L55 75 L50 90 L45 75 L30 85 L35 70 L15 75 L28 62 L5 58 L25 50 L5 42 L28 38 L15 25 L35 30 L30 15 L45 25 Z"/>
+                </svg>
+              </Box>
+              <Typography variant="h6" sx={{ mb: 0.5, color: '#E31937', fontFamily: "'Orbitron', sans-serif", fontSize: '0.9rem' }}>Send a Message</Typography>
+              <Typography variant="body2" sx={{ color: '#8899AA', mb: 3 }}>Fill out the form below and I'll get back to you soon.</Typography>
               <Formik
                 initialValues={{ name: '', email: '', subject: '', message: '' }}
                 validationSchema={validationSchema}
@@ -169,8 +185,8 @@ export default function Contact() {
                   sendToWhatsApp(values);
                   toast.success('Opening WhatsApp with your message!', {
                     duration: 4000,
-                    style: { background: '#141414', color: '#F8FAFC', border: '1px solid #FBBF24' },
-                    iconTheme: { primary: '#FBBF24', secondary: '#141414' },
+                    style: { background: '#121820', color: '#F0F4F8', border: '1px solid #E31937' },
+                    iconTheme: { primary: '#E31937', secondary: '#121820' },
                   });
                   resetForm();
                 }}
@@ -183,48 +199,48 @@ export default function Contact() {
                   <Form>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5 }}>
                       <Box ref={(el) => (formFieldsRef.current[0] = el)} sx={{ opacity: 0 }}>
-                        <Typography variant="body2" fontWeight={600} color="text.secondary" sx={{ mb: 0.75 }}>Name</Typography>
+                        <Typography variant="body2" fontWeight={600} sx={{ color: '#8899AA', mb: 0.75 }}>Name</Typography>
                         <Field
                           name="name" type="text" placeholder="Your name"
-                          style={{ ...inputStyle, borderColor: touched.name && errors.name ? '#DC2626' : '#2A2A2A' }}
-                          onFocus={(e) => { e.target.style.borderColor = touched.name && errors.name ? '#DC2626' : '#FBBF24'; }}
-                          onBlur={(e) => { setFieldTouched('name', true); e.target.style.borderColor = touched.name && errors.name ? '#DC2626' : '#2A2A2A'; }}
+                          style={{ ...inputStyle, borderColor: touched.name && errors.name ? '#E31937' : '#1E2A3A' }}
+                          onFocus={(e) => { e.target.style.borderColor = touched.name && errors.name ? '#E31937' : '#00D4FF'; }}
+                          onBlur={(e) => { setFieldTouched('name', true); e.target.style.borderColor = touched.name && errors.name ? '#E31937' : '#1E2A3A'; }}
                         />
                         {touched.name && errors.name && (
-                          <Typography variant="caption" sx={{ color: '#DC2626', mt: 0.5, display: 'block' }}>{errors.name}</Typography>
+                          <Typography variant="caption" sx={{ color: '#E31937', mt: 0.5, display: 'block' }}>{errors.name}</Typography>
                         )}
                       </Box>
                       <Box ref={(el) => (formFieldsRef.current[1] = el)} sx={{ opacity: 0 }}>
-                        <Typography variant="body2" fontWeight={600} color="text.secondary" sx={{ mb: 0.75 }}>Email</Typography>
+                        <Typography variant="body2" fontWeight={600} sx={{ color: '#8899AA', mb: 0.75 }}>Email</Typography>
                         <Field
                           name="email" type="email" placeholder="your@email.com"
-                          style={{ ...inputStyle, borderColor: touched.email && errors.email ? '#DC2626' : '#2A2A2A' }}
-                          onFocus={(e) => { e.target.style.borderColor = touched.email && errors.email ? '#DC2626' : '#FBBF24'; }}
-                          onBlur={(e) => { setFieldTouched('email', true); e.target.style.borderColor = touched.email && errors.email ? '#DC2626' : '#2A2A2A'; }}
+                          style={{ ...inputStyle, borderColor: touched.email && errors.email ? '#E31937' : '#1E2A3A' }}
+                          onFocus={(e) => { e.target.style.borderColor = touched.email && errors.email ? '#E31937' : '#00D4FF'; }}
+                          onBlur={(e) => { setFieldTouched('email', true); e.target.style.borderColor = touched.email && errors.email ? '#E31937' : '#1E2A3A'; }}
                         />
                         {touched.email && errors.email && (
-                          <Typography variant="caption" sx={{ color: '#DC2626', mt: 0.5, display: 'block' }}>{errors.email}</Typography>
+                          <Typography variant="caption" sx={{ color: '#E31937', mt: 0.5, display: 'block' }}>{errors.email}</Typography>
                         )}
                       </Box>
                       <Box ref={(el) => (formFieldsRef.current[2] = el)} sx={{ opacity: 0 }}>
-                        <Typography variant="body2" fontWeight={600} color="text.secondary" sx={{ mb: 0.75 }}>Subject</Typography>
+                        <Typography variant="body2" fontWeight={600} sx={{ color: '#8899AA', mb: 0.75 }}>Subject</Typography>
                         <Box sx={{ position: 'relative' }}>
                           <Field
                             as="select"
                             name="subject"
                             style={{
                               ...inputStyle,
-                              borderColor: touched.subject && errors.subject ? '#DC2626' : '#2A2A2A',
+                              borderColor: touched.subject && errors.subject ? '#E31937' : '#1E2A3A',
                               cursor: 'pointer',
                               appearance: 'none',
                               paddingRight: 40,
                             }}
-                            onFocus={(e) => { e.target.style.borderColor = touched.subject && errors.subject ? '#DC2626' : '#FBBF24'; }}
-                            onBlur={(e) => { setFieldTouched('subject', true); e.target.style.borderColor = touched.subject && errors.subject ? '#DC2626' : '#2A2A2A'; }}
+                            onFocus={(e) => { e.target.style.borderColor = touched.subject && errors.subject ? '#E31937' : '#00D4FF'; }}
+                            onBlur={(e) => { setFieldTouched('subject', true); e.target.style.borderColor = touched.subject && errors.subject ? '#E31937' : '#1E2A3A'; }}
                           >
-                            <option value="" disabled style={{ background: '#0A0A0A', color: '#94A3B8' }}>Select a subject</option>
+                            <option value="" disabled style={{ background: '#0A0E14', color: '#8899AA' }}>Select a subject</option>
                             {subjects.map((s) => (
-                              <option key={s} value={s} style={{ background: '#0A0A0A', color: '#F8FAFC' }}>{s}</option>
+                              <option key={s} value={s} style={{ background: '#0A0E14', color: '#F0F4F8' }}>{s}</option>
                             ))}
                           </Field>
                           <Box sx={{
@@ -233,7 +249,7 @@ export default function Contact() {
                             top: '50%',
                             transform: 'translateY(-50%)',
                             pointerEvents: 'none',
-                            color: '#64748B',
+                            color: '#556677',
                             display: 'flex',
                             alignItems: 'center',
                           }}>
@@ -243,19 +259,19 @@ export default function Contact() {
                           </Box>
                         </Box>
                         {touched.subject && errors.subject && (
-                          <Typography variant="caption" sx={{ color: '#DC2626', mt: 0.5, display: 'block' }}>{errors.subject}</Typography>
+                          <Typography variant="caption" sx={{ color: '#E31937', mt: 0.5, display: 'block' }}>{errors.subject}</Typography>
                         )}
                       </Box>
                       <Box ref={(el) => (formFieldsRef.current[3] = el)} sx={{ opacity: 0 }}>
-                        <Typography variant="body2" fontWeight={600} color="text.secondary" sx={{ mb: 0.75 }}>Message</Typography>
+                        <Typography variant="body2" fontWeight={600} sx={{ color: '#8899AA', mb: 0.75 }}>Message</Typography>
                         <Field
                           name="message" placeholder="Tell me about your project or idea..." as="textarea" rows={4}
-                          style={{ ...inputStyle, resize: 'none', borderColor: touched.message && errors.message ? '#DC2626' : '#2A2A2A' }}
-                          onFocus={(e) => { e.target.style.borderColor = touched.message && errors.message ? '#DC2626' : '#FBBF24'; }}
-                          onBlur={(e) => { setFieldTouched('message', true); e.target.style.borderColor = touched.message && errors.message ? '#DC2626' : '#2A2A2A'; }}
+                          style={{ ...inputStyle, resize: 'none', borderColor: touched.message && errors.message ? '#E31937' : '#1E2A3A' }}
+                          onFocus={(e) => { e.target.style.borderColor = touched.message && errors.message ? '#E31937' : '#00D4FF'; }}
+                          onBlur={(e) => { setFieldTouched('message', true); e.target.style.borderColor = touched.message && errors.message ? '#E31937' : '#1E2A3A'; }}
                         />
                         {touched.message && errors.message && (
-                          <Typography variant="caption" sx={{ color: '#DC2626', mt: 0.5, display: 'block' }}>{errors.message}</Typography>
+                          <Typography variant="caption" sx={{ color: '#E31937', mt: 0.5, display: 'block' }}>{errors.message}</Typography>
                         )}
                       </Box>
                       <Box
@@ -272,13 +288,14 @@ export default function Contact() {
                           onClick={markAllTouched}
                           sx={{
                             py: 1.5,
-                            background: 'linear-gradient(135deg, #FBBF24, #D97706)',
-                            color: '#0A0A0A', borderRadius: 1, fontWeight: 700, fontSize: '0.95rem',
+                            background: 'linear-gradient(135deg, #E31937, #AA1028)',
+                            color: '#F0F4F8', borderRadius: 1, fontWeight: 700, fontSize: '0.85rem',
                             textTransform: 'uppercase', letterSpacing: 1,
-                            boxShadow: '0 4px 20px rgba(251, 191, 36, 0.3)',
+                            fontFamily: "'Orbitron', sans-serif",
+                            boxShadow: '0 4px 20px rgba(227, 25, 55, 0.3)',
                             '&:hover': {
-                              background: 'linear-gradient(135deg, #D97706, #B45309)',
-                              boxShadow: '0 6px 25px rgba(251,191,36,0.4)',
+                              background: 'linear-gradient(135deg, #FF2040, #E31937)',
+                              boxShadow: '0 6px 25px rgba(227,25,55,0.4)',
                             },
                             '&.Mui-disabled': { opacity: 0.6, color: '#fff' },
                           }}

@@ -12,7 +12,7 @@ const projects = [
     title: 'OptimumXRecon',
     description: 'A modular cybersecurity reconnaissance toolkit written in Python. Features DNS Lookup, Threaded Port Scanner, SSL Certificate Analysis, Security Header Analysis, Technology Fingerprinting, WHOIS Lookup, Subdomain Enumeration, and VirusTotal Reputation Analysis.',
     tech: ['Python', 'Socket', 'dnspython', 'VirusTotal API', 'Rich'],
-    color: '#FBBF24',
+    color: '#E31937',
     github: 'https://github.com/OpTiMuS-mov/OptimumXRecon',
     type: 'code',
   },
@@ -20,7 +20,7 @@ const projects = [
     title: 'Netryx Club Inauguration',
     description: 'Event highlight reel capturing the official inauguration of the Netryx Club — marking the beginning of a new chapter in tech and innovation at IPS Academy.',
     tech: ['Event Production', 'Video Editing'],
-    color: '#16a34a',
+    color: '#00D4FF',
     reel: 'https://www.instagram.com/reel/DOst5qVATsL/',
     type: 'reel',
   },
@@ -28,7 +28,7 @@ const projects = [
     title: 'Netryx Club Reveal',
     description: 'A high-energy reveal video unveiling the Netryx Club identity, building hype and excitement among the student community at IPS Academy.',
     tech: ['Event Production', 'Video Editing'],
-    color: '#22C55E',
+    color: '#0066CC',
     reel: 'https://www.instagram.com/reel/DOqaTmiCXAK/',
     type: 'reel',
   },
@@ -36,7 +36,7 @@ const projects = [
     title: 'TCC x BEIYO Collaboration',
     description: 'A dynamic collaboration project between TCC Club and BEIYO, showcasing the synergy of creativity and innovation through compelling visual content.',
     tech: ['Collaboration', 'Content Creation'],
-    color: '#F59E0B',
+    color: '#E31937',
     reel: 'https://www.instagram.com/reel/DPveCtmkk7E/',
     type: 'reel',
   },
@@ -44,7 +44,7 @@ const projects = [
     title: 'TCC Club Rishikesh Travel',
     description: "A travel vlog documenting the TCC Club's journey to Rishikesh — capturing adventure, bonding, and unforgettable moments amidst the mountains and Ganges.",
     tech: ['Travel Vlog', 'Storytelling'],
-    color: '#DC2626',
+    color: '#00D4FF',
     reel: 'https://www.instagram.com/reel/DPZEg7_jD00/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
     type: 'reel',
   },
@@ -52,7 +52,7 @@ const projects = [
     title: 'Netryx x Ai Open sec x Cloud Ai Tech Collaboration',
     description: 'A creative showcase of the collaborative efforts between Netryx, Ai Open Sec, and Cloud Ai Tech, highlighting innovative projects and shared visions in the tech community.',
     tech: ['Creative Direction', 'Visual Design'],
-    color: '#FBBF24',
+    color: '#0066CC',
     reel: 'https://www.instagram.com/reel/Dang9JUofrt/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==',
     type: 'reel',
   },
@@ -60,7 +60,7 @@ const projects = [
     title: 'TCC Reveal',
     description: 'An exciting surprise reveal video for the TCC Club, crafted to surprise and engage the audience with a dramatic unveiling.',
     tech: ['Video Production', 'Event Coverage'],
-    color: '#8B5CF6',
+    color: '#E31937',
     reel: 'https://www.instagram.com/reel/DPMsy-OjGKT/',
     type: 'reel',
   },
@@ -109,10 +109,10 @@ export default function Projects() {
   }, []);
 
   const handleCardHover = (el, enter, color) => {
-    gsap.to(el, { y: enter ? -10 : 0, boxShadow: enter ? `0 20px 60px ${color}15` : 'none', borderColor: enter ? '#FBBF24' : '#2A2A2A', duration: 0.4, ease: 'power2.out' });
+    gsap.to(el, { y: enter ? -10 : 0, boxShadow: enter ? `0 20px 60px ${color}15` : 'none', borderColor: enter ? '#00D4FF' : '#1E2A3A', duration: 0.4, ease: 'power2.out' });
   };
   const handleLinkHover = (el, enter) => {
-    gsap.to(el, { scale: enter ? 1.15 : 1, color: enter ? '#FBBF24' : '#94A3B8', duration: 0.25, ease: 'power2.out' });
+    gsap.to(el, { scale: enter ? 1.15 : 1, color: enter ? '#00D4FF' : '#8899AA', duration: 0.25, ease: 'power2.out' });
   };
 
   return (
@@ -120,7 +120,7 @@ export default function Projects() {
       <div className="section-container">
         <div ref={headerRef} className="section-header" style={{ opacity: 0 }}>
           <span className="section-tag">Projects</span>
-          <h2 className="section-title" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: 3, fontSize: '2.8rem' }}>
+          <h2 className="section-title" style={{ fontFamily: "'Orbitron', sans-serif", letterSpacing: 3, fontSize: '2.5rem' }}>
             Things I've <span className="gradient-text">built</span>
           </h2>
           <p className="section-subtitle">A collection of projects that showcase my skills and creative journey</p>
@@ -129,7 +129,7 @@ export default function Projects() {
         <div className="projects-grid">
           {projects.map((project, i) => (
             <div key={project.title} ref={(el) => (projectCardsRef.current[i] = el)}
-              className={`project-card ${project.type === 'code' ? 'project-featured' : ''}`}
+              className={`project-card mech-card ${project.type === 'code' ? 'project-featured' : ''}`}
               style={{ opacity: 0 }}
               onMouseEnter={(e) => handleCardHover(e.currentTarget, true, project.color)}
               onMouseLeave={(e) => handleCardHover(e.currentTarget, false, project.color)}>

@@ -11,9 +11,16 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BatSymbolFooter = () => (
-  <svg width="24" height="12" viewBox="0 0 100 50" fill="#FBBF24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 0C50 0 47 8 42 12C37 16 32 17 27 16C22 15 18 13 14 12C10 11 7 11 5 12C3 13 2 15 2 15C2 15 3 18 6 21C9 24 12 25 14 24C12 27 9 31 6 35C6 35 10 33 15 30C18 28 21 26 24 25C27 24 30 24 33 25C36 26 39 28 42 31C45 34 48 38 50 42C52 38 55 34 58 31C61 28 64 26 67 25C70 24 73 24 76 25C79 26 82 28 85 30C90 33 94 35 94 35C91 31 88 27 86 24C88 25 91 24 94 21C97 18 98 15 98 15C98 15 97 13 95 12C93 11 90 11 86 12C82 13 78 15 73 16C68 17 63 16 58 12C53 8 50 0 50 0Z"/>
+const AutobotLogoFooter = () => (
+  <svg width="24" height="24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="footerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style={{ stopColor: '#E31937' }} />
+        <stop offset="100%" style={{ stopColor: '#00D4FF' }} />
+      </linearGradient>
+    </defs>
+    <path d="M50 8 L62 25 L80 20 L75 38 L95 42 L78 52 L90 70 L68 62 L58 85 L50 68 L42 85 L32 62 L10 70 L22 52 L5 42 L25 38 L20 20 L38 25 Z" fill="url(#footerGrad)" stroke="#00D4FF" strokeWidth="1"/>
+    <path d="M50 30 L56 40 L50 48 L44 40 Z" fill="#00D4FF" opacity="0.8"/>
   </svg>
 );
 
@@ -38,23 +45,23 @@ export default function Footer() {
 
   const socialBtnSx = {
     width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center',
-    border: '1px solid #2A2A2A', borderRadius: 1, color: '#94A3B8',
+    border: '1px solid #1E2A3A', borderRadius: 1, color: '#8899AA',
     textDecoration: 'none', transition: 'all 0.3s ease',
-    '&:hover': { borderColor: '#FBBF24', color: '#FBBF24' },
+    '&:hover': { borderColor: '#00D4FF', color: '#00D4FF' },
   };
 
   return (
-    <footer ref={footerRef} sx={{ background: '#0A0A0A', borderTop: '1px solid #2A2A2A', py: 4, px: 2 }}>
+    <footer ref={footerRef} sx={{ background: '#0A0E14', borderTop: '1px solid #1E2A3A', py: 4, px: 2 }}>
       <Container maxWidth="lg">
         <Box ref={contentRef} sx={{ opacity: 0 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <BatSymbolFooter />
+              <AutobotLogoFooter />
               <Box>
-                <Typography sx={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: '1.1rem' }}>
-                  <span style={{ color: '#FBBF24' }}>&lt;</span>Avinash<span style={{ color: '#FBBF24' }}>/&gt;</span>
+                <Typography sx={{ fontFamily: "'Orbitron', monospace", fontWeight: 700, fontSize: '1rem', letterSpacing: 1 }}>
+                  <span style={{ color: '#E31937' }}>&lt;</span>Avinash<span style={{ color: '#00D4FF' }}>/&gt;</span>
                 </Typography>
-                <Typography variant="body2" color="text.disabled" sx={{ mt: 0.5 }}>Building the future, one line of code at a time.</Typography>
+                <Typography variant="body2" sx={{ color: '#556677', mt: 0.5 }}>Building the future, one line of code at a time.</Typography>
               </Box>
             </Box>
             <Box sx={{ display: 'flex', gap: 1 }}>
@@ -85,9 +92,9 @@ export default function Footer() {
             </Box>
           </Box>
 
-          <Box sx={{ borderTop: '1px solid #2A2A2A', pt: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Typography variant="body2" color="text.disabled" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-              Made with <FavoriteBorderIcon sx={{ color: '#DC2626', fontSize: 14 }} /> by Avinash Kotarya
+          <Box sx={{ borderTop: '1px solid #1E2A3A', pt: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Typography variant="body2" sx={{ color: '#556677', display: 'flex', alignItems: 'center', gap: 0.5 }}>
+              Made with <FavoriteBorderIcon sx={{ color: '#E31937', fontSize: 14 }} /> by Avinash Kotarya
             </Typography>
             <IconButton
               component={Link} to="/"

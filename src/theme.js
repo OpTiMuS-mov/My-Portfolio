@@ -3,15 +3,16 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     mode: 'dark',
-    primary: { main: '#FBBF24' },
+    primary: { main: '#E31937' },
+    secondary: { main: '#0066CC' },
     background: {
-      default: '#0A0A0A',
-      paper: '#141414',
+      default: '#0A0E14',
+      paper: '#121820',
     },
     text: {
-      primary: '#F8FAFC',
-      secondary: '#94A3B8',
-      disabled: '#64748B',
+      primary: '#F0F4F8',
+      secondary: '#8899AA',
+      disabled: '#556677',
     },
   },
   typography: {
@@ -25,8 +26,8 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          background: '#141414',
-          border: '1px solid #2A2A2A',
+          background: '#121820',
+          border: '1px solid #1E2A3A',
           borderRadius: 4,
         },
       },
@@ -41,7 +42,7 @@ const theme = createTheme({
     MuiLinearProgress: {
       styleOverrides: {
         root: {
-          backgroundColor: '#1E1E1E',
+          backgroundColor: '#0D1520',
         },
       },
     },

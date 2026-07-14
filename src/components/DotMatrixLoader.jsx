@@ -16,9 +16,11 @@ const DotMatrixLoader = ({ size = 'medium' }) => {
           const row = Math.floor(i / matrix);
           const col = i % matrix;
           const delay = (row + col) * 0.1;
+          const colors = ['#E31937', '#0066CC', '#00D4FF'];
+          const color = colors[i % colors.length];
           return (
             <Box key={i} sx={{
-              width: dot, height: dot, borderRadius: '50%', background: '#FBBF24',
+              width: dot, height: dot, borderRadius: '50%', background: color,
               animation: `dotPulse 1.5s ease-in-out ${delay}s infinite`,
               '@keyframes dotPulse': {
                 '0%, 100%': { opacity: 0.2, transform: 'scale(0.8)' },

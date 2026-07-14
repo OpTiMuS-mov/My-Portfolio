@@ -17,7 +17,7 @@ const experiences = [
     location: 'Indore, MP',
     period: '2024 – Present',
     type: 'Club',
-    typeColor: '#16a34a',
+    typeColor: '#00D4FF',
     icon: <VideoCameraBackIcon />,
     description: 'Creating and editing promotional videos, event coverage, and social media content for the college club. Managing video production workflow from concept to final output.',
     skills: ['Video Editing', 'Adobe Premiere Pro', 'After Effects', 'Content Creation'],
@@ -28,7 +28,7 @@ const experiences = [
     location: 'Remote',
     period: '2024 – Present',
     type: 'Freelance',
-    typeColor: '#F59E0B',
+    typeColor: '#0066CC',
     icon: <RocketLaunchIcon />,
     description: 'Providing cybersecurity consultation and penetration testing services to small businesses. Conducting security audits and vulnerability assessments.',
     skills: ['OSINT', 'Network Security', 'Python', 'Kali Linux'],
@@ -39,7 +39,7 @@ const experiences = [
     location: 'Indore, MP',
     period: '2024 – Present',
     type: 'Specialization',
-    typeColor: '#DC2626',
+    typeColor: '#E31937',
     icon: <BugReportIcon />,
     description: 'Performing Vulnerability Assessment and Penetration Testing on web applications and networks. Identifying security loopholes and suggesting mitigation strategies.',
     skills: ['VAPT', 'Burp Suite', 'Nmap', 'Metasploit', 'OWASP Top 10'],
@@ -50,7 +50,7 @@ const experiences = [
     location: 'Indore, MP',
     period: 'Jan 2025 – Apr 2025',
     type: 'Internship',
-    typeColor: '#FBBF24',
+    typeColor: '#00D4FF',
     icon: <SecurityIcon />,
     description: 'Conducted vulnerability assessments and penetration testing for client applications. Identified critical security flaws and provided remediation recommendations.',
     skills: ['VAPT', 'Burp Suite', 'Nmap', 'Report Writing'],
@@ -106,17 +106,17 @@ export default function Experience() {
   }, []);
 
   const handleCardHover = (el, enter) => {
-    gsap.to(el, { y: enter ? -6 : 0, boxShadow: enter ? '0 10px 30px rgba(251,191,36,0.1)' : 'none', duration: 0.3, ease: 'power2.out' });
+    gsap.to(el, { y: enter ? -6 : 0, boxShadow: enter ? '0 10px 30px rgba(0,212,255,0.1)' : 'none', duration: 0.3, ease: 'power2.out' });
   };
 
   return (
-    <Box ref={sectionRef} id="experience" sx={{ py: 8, px: 2, background: '#0A0A0A', overflow: 'hidden' }}>
+    <Box ref={sectionRef} id="experience" sx={{ py: 8, px: 2, background: '#0A0E14', overflow: 'hidden' }}>
       <Container maxWidth="lg">
         <Box ref={headerRef} sx={{ textAlign: 'center', mb: 6, opacity: 0 }}>
-          <Typography variant="caption" sx={{ color: '#FBBF24', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'JetBrains Mono', monospace" }}>Experience</Typography>
-          <Typography variant="h2" sx={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: { xs: '2rem', md: '3.2rem' }, letterSpacing: 3 }}>
+          <Typography variant="caption" sx={{ color: '#00D4FF', textTransform: 'uppercase', letterSpacing: 3, fontFamily: "'Orbitron', sans-serif", fontSize: '0.7rem' }}>Experience</Typography>
+          <Typography variant="h2" sx={{ fontFamily: "'Orbitron', sans-serif", fontSize: { xs: '1.8rem', md: '2.8rem' }, letterSpacing: 3 }}>
             Professional{' '}
-            <Box component="span" sx={{ background: 'linear-gradient(135deg, #FBBF24, #F59E0B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>journey</Box>
+            <Box component="span" sx={{ background: 'linear-gradient(135deg, #E31937, #00D4FF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>journey</Box>
           </Typography>
         </Box>
 
@@ -129,13 +129,13 @@ export default function Experience() {
               top: 0,
               bottom: 0,
               width: 3,
-              background: 'linear-gradient(180deg, #FBBF24, #DC2626, #F59E0B, #16a34a)',
+              background: 'linear-gradient(180deg, #E31937, #0066CC, #00D4FF, #0066CC)',
               transform: 'translateX(-50%)',
               transformOrigin: 'top',
               borderRadius: 2,
               zIndex: 1,
               display: { xs: 'none', md: 'block' },
-              boxShadow: '0 0 10px rgba(251,191,36,0.2)',
+              boxShadow: '0 0 15px rgba(0,212,255,0.2)',
             }}
           />
 
@@ -154,10 +154,10 @@ export default function Experience() {
                       height: 16,
                       borderRadius: '50%',
                       background: exp.typeColor,
-                      border: '3px solid #0A0A0A',
+                      border: '3px solid #0A0E14',
                       zIndex: 2,
                       display: { xs: 'none', md: 'block' },
-                      boxShadow: `0 0 12px ${exp.typeColor}60`,
+                      boxShadow: `0 0 15px ${exp.typeColor}80`,
                     }}
                   />
 
@@ -188,12 +188,12 @@ export default function Experience() {
                         if (isLeft) leftCardsRef.current[i] = el;
                         else rightCardsRef.current[i] = el;
                       }}
+                      className="mech-card"
                       sx={{
                         p: 3,
                         borderTop: `4px solid ${exp.typeColor}`,
                         opacity: 0,
                         cursor: 'default',
-                        background: '#141414',
                         '&:hover': { borderColor: exp.typeColor },
                       }}
                       onMouseEnter={(e) => handleCardHover(e.currentTarget, true)}
@@ -205,20 +205,20 @@ export default function Experience() {
                         </Box>
                         <Box sx={{ flex: 1 }}>
                           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
-                            <Typography variant="h6" sx={{ fontSize: '1.05rem', color: '#F8FAFC' }}>{exp.title}</Typography>
-                            <Chip label={exp.type} size="small" sx={{ height: 20, fontSize: '0.7rem', background: `${exp.typeColor}20`, color: exp.typeColor }} />
+                            <Typography variant="h6" sx={{ fontSize: '1.05rem', color: '#F0F4F8' }}>{exp.title}</Typography>
+                            <Chip label={exp.type} size="small" sx={{ height: 20, fontSize: '0.7rem', background: `${exp.typeColor}20`, color: exp.typeColor, fontFamily: "'Orbitron', sans-serif" }} />
                           </Box>
-                          <Typography variant="body2" sx={{ color: '#94A3B8' }}>{exp.company} · {exp.location}</Typography>
+                          <Typography variant="body2" sx={{ color: '#8899AA' }}>{exp.company} · {exp.location}</Typography>
                         </Box>
                       </Box>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
-                        <TimelineIcon sx={{ fontSize: 14, color: '#64748B' }} />
-                        <Typography variant="caption" sx={{ fontFamily: "'JetBrains Mono', monospace", color: '#64748B' }}>{exp.period}</Typography>
+                        <TimelineIcon sx={{ fontSize: 14, color: '#556677' }} />
+                        <Typography variant="caption" sx={{ fontFamily: "'JetBrains Mono', monospace", color: '#556677' }}>{exp.period}</Typography>
                       </Box>
-                      <Typography variant="body2" sx={{ lineHeight: 1.7, mb: 2, color: '#CBD5E1' }}>{exp.description}</Typography>
+                      <Typography variant="body2" sx={{ lineHeight: 1.7, mb: 2, color: '#8899AA' }}>{exp.description}</Typography>
                       <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
                         {exp.skills.map((skill) => (
-                          <Chip key={skill} label={skill} size="small" sx={{ background: '#0A0A0A', color: '#94A3B8', fontSize: '0.75rem', border: '1px solid #2A2A2A' }} />
+                          <Chip key={skill} label={skill} size="small" sx={{ background: '#0A0E14', color: '#8899AA', fontSize: '0.75rem', border: '1px solid #1E2A3A' }} />
                         ))}
                       </Box>
                     </Card>
